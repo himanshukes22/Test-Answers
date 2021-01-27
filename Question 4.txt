@@ -1,0 +1,26 @@
+Ques 4) Design a mysql database. Requirements are as follows 
+             1. We have a user entity with columns username, password
+             2. Every use can have multiple addresses. Address entity will have column street, pincode, country, state, phone no. So one user can have multiple 
+                addresses. 
+        Design a db structure for this using create table sql syntax and submit that.
+        Next,
+        Write a route in flask or django GET, POST route to save a user, login a user, add/update address for that user.
+
+Solution
+
+
+mysql> create database db;
+Query OK, 1 row affected (0.00 sec)
+
+mysql> use db;
+Database changed
+
+mysql> create table user( username varchar(100) primary key, password varchar(100));
+Query OK, 0 rows affected (0.16 sec)
+
+mysql> create table Address( street varchar(100), pincode varchar(50), country varchar(100), state varchar(100), phone_no varchar(20),username varchar(100), FOR
+EIGN KEY(username) REFERENCES user(username));
+Query OK, 0 rows affected (0.17 sec)
+
+
+
